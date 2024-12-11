@@ -35,12 +35,12 @@ showOpenPanel((result, files) {
 // resolve bookmark from persistet 'bookmark' string from earlier
 final resolvedFile = await _secureBookmarks.resolveBookmark(_bookmark);
 // resolved is now a File object, but before accessing it, call:
-await startAccessingSecurityScopedResource(resolvedFile);
+await _secureBookmarks.startAccessingSecurityScopedResource(resolvedFile);
 
 // now read/write the file
 
 // and later give up access.
-await stopAccessingSecurityScopedResource(resolvedFile);
+await _secureBookmarks.stopAccessingSecurityScopedResource(resolvedFile);
 
 ```
 
